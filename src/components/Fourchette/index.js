@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import Game from '../game/Game';
 
 // == Import
 import './styles.scss';
@@ -7,7 +8,8 @@ import './styles.scss';
 // == Composant
 const Fourchette = () => (
   <div className="fourchette">
-    <h1>Composant : Fourchette</h1>
+    <h1>Le juste prix</h1>
+    <Game />
   </div>
 );
 
