@@ -1,0 +1,12 @@
+@use "src/styles/vars";
+.fourchette {
+  background-color: vars.$color1;
+  text-align: center;
+  padding: 2rem;
+  height: 100vh;
+  &__title {
+    font-size: 2em;
+    color: #fff;
+    padding-bottom: 1rem;
+  }
+}

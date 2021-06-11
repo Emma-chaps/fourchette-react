@@ -8,7 +8,7 @@ import './styles.scss';
 // == Composant
 const Fourchette = () => (
   <div className="fourchette">
-    <h1>Le juste prix</h1>
+    <h1 className="fourchette__title">Le juste prix</h1>
     <Game />
   </div>
 );

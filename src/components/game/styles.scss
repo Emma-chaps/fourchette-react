@@ -1,0 +1,81 @@
+@use 'src/styles/vars';
+
+.game-container {
+  background-color: #fff;
+  margin: 0 auto;
+  width: 25vw;
+  border-radius: 10px;
+  margin-bottom: 5rem;
+  &__title {
+    font-size: 1.4em;
+    padding: 1.3rem 0 0.5rem 0;
+    text-align: left;
+    margin-left: 1rem;
+  }
+  &__message {
+    border-radius: 3px;
+    margin: 0 1rem 1rem 1rem;
+    padding: 0.7rem;
+    font-size: 0.6em;
+    color: #fff;
+    text-align: left;
+
+    #info {
+      padding-right: 0.5rem;
+    }
+  }
+  .blue {
+    background-color: #2196f3;
+  }
+  .green {
+    background-color: #4caf50;
+  }
+  &__round-container {
+    margin-bottom: 1rem;
+    padding: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    &__number {
+      color: white;
+      background-color: #7d66ff;
+      height: 50px;
+      width: 50px;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      border-radius: 50%;
+    }
+    .position {
+      position: relative;
+      top: 17px;
+    }
+    .position-number {
+      position: relative;
+      top: 17px;
+    }
+  }
+  &__form {
+    padding: 0 1rem 1rem 1rem;
+    text-align: left;
+    &--input {
+      border-radius: 2px;
+      box-shadow: 0 2px 2px -2px gray;
+      border: none;
+      margin-right: 5px;
+      width: 180px;
+      font-size: 0.9em;
+      padding-bottom: 0.2rem;
+    }
+    &--button {
+      font-size: 0.7em;
+      padding: 0.3rem;
+      color: #fff;
+      border-radius: 5px;
+      box-shadow: 0px 0px 4px -2px rgba(0, 0, 0, 0.75);
+      background-color: #3f51b5;
+      border: solid 1px #216094;
+      margin-bottom: 1rem;
+    }
+  }
+}

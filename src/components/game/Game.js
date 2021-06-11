@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import './styles.scss';
 
-const Game = (props) => {
+const Game = () => {
   const [win, setWin] = useState('?');
   const [message, setMessage] = useState('Aucune proposition récente');
   const [result, setResult] = useState(null);
@@ -9,6 +9,7 @@ const Game = (props) => {
   const [max, setMax] = useState(100);
   const [answer, setAnswer] = useState('');
   const [compteur, setCompteur] = useState(1);
+  const [color, setColor] = useState('blue');
 
   const getRandomArbitrary = (minimum, maximum) => {
     const randomNb = Math.round(Math.random() * (maximum - minimum) + minimum);
@@ -30,7 +31,7 @@ const Game = (props) => {
       } else {
         setWin(answer);
         setAnswer('');
-
+        setColor('green');
         if (compteur === 1) {
           setMessage(
             `Bravo ! Tu as trouvé le bon nombre en ${compteur} coup !!`
@@ -60,35 +61,49 @@ const Game = (props) => {
     getRandomArbitrary(min, max);
   }, []);
 
-  console.log(answer);
-  console.log('result', result);
-
   return (
-    <div>
-      <h2>Propose un nombre</h2>
-      <span>{message}</span>
-      <div>
-        <span>{min}</span>
-        <i className="fas fa-chevron-left"></i>
-        <span>{win}</span>
-        <i className="fas fa-chevron-left"></i>
-        <span>{max}</span>
+    <div className="game-container">
+      <h2 className="game-container__title">Propose un nombre</h2>
+      <div className={`game-container__message ${color}`}>
+        <i class="fas fa-info-circle" id="info"></i> {message}
+      </div>
+      <div className="game-container__round-container">
+        <div className="game-container__round-container__number">
+          <span className="position-number">{min}</span>
+        </div>
+        <i className="fas fa-chevron-left position"></i>
+        <div className="game-container__round-container__number">
+          <span className="position-number">{win}</span>
+        </div>
+        <i className="fas fa-chevron-left position"></i>
+        <div className="game-container__round-container__number">
+          <span className="position-number">{max}</span>
+        </div>
       </div>
       {win == result ? (
         <form action="">
-          <button>Rejouer</button>
+          <button class="game-container__form--button">Rejouer</button>
         </form>
       ) : (
-        <form action="" onSubmit={handleSubmit}>
+        <form
+          action=""
+          onSubmit={handleSubmit}
+          className="game-container__form"
+        >
           <input
+            className="game-container__form--input"
             type="number"
             name="answer"
             id="inputValue"
             placeholder="Votre proposition"
             value={answer}
             onChange={handleChange}
-          ></input>
-          <button type="button" onChange={handleSubmit}>
+          />
+          <button
+            className="game-container__form--button"
+            type="button"
+            onClick={handleSubmit}
+          >
             PROPOSER <i className="fas fa-arrow-circle-right"></i>
           </button>
         </form>
@@ -96,7 +111,5 @@ const Game = (props) => {
     </div>
   );
 };
-
-Game.propTypes = {};
 
 export default Game;
